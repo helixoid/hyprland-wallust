@@ -1,0 +1,6 @@
+#!/bin/bash
+
+TITLE="SEEDED"
+MESSAGE="$TR_TORRENT_NAME"
+
+notify-send "$TITLE" "$MESSAGE"

@@ -1,0 +1,83 @@
+let {
+	$workspaces = {
+		type = "workspaces"
+		favorites = [ "1" "2" "3" "4" "5" ]
+		name_map = {
+			1 = "一"
+      			2 = "二"
+      			3 = "三"
+      			4 = "四"
+      			5 = "五"
+      			6 = "六"
+      			7 = "七"
+      			8 = "八"
+      			9 = "九"
+			10 = "十"
+		}
+	}
+
+	$focused = {
+		type = "focused"
+    		show_icon = true
+    		show_title = true
+    		icon_size = 16
+    		truncate.mode = "end"
+    		truncate.max_length = 50
+	}
+
+	$separator = {
+    		type = "label"
+    		label = "󰇘"
+    		class = "separator"
+  	}
+
+	$clock = {
+    		type = "clock"
+    		format = "%a, %H:%M"
+  	}
+
+	$info = {
+		type = "sys_info"
+		interval.cpu = 3
+		interval.networks = 3
+		format = [
+			"  {cpu_percent}%"
+			"󰤨  {net_up:wlp1s0}   {net_down:wlp1s0} "
+		]
+	}
+
+	$upower = {
+		type = "upower"
+		format = "{percentage}%"
+	}
+
+	$tray = {
+		type = "tray"
+	}
+
+	$power_button = {
+		type = "button"
+		lable = ""
+		name = "power-button"
+		on_click = "!pkill rofi || /home/ayush/.config/rofi/scripts/PowerMenu-blurred"
+	}
+
+	$power_menu = {
+		type = "custom"
+		class = "power-menu"
+		bar = [ $power_button ]
+	}
+}
+
+in {
+	position = "top"
+	height = 18
+	margin.top = 3
+	margin.bottom = 0
+	margin.left = 3
+	margin.right = 3
+	icon_theme = "Papirus-Dark"
+	start = [ $workspaces ]
+	center = [ $focused ]
+	end = [ $tray $info $upower $clock ]
+}

@@ -1,0 +1,1 @@
+Use qt-5 app file picker to add places to shotcut

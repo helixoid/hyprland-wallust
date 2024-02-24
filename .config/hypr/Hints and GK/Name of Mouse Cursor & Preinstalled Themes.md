@@ -1,0 +1,1 @@
+$ ls /usr/share/icons/

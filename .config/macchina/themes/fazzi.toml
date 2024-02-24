@@ -1,0 +1,36 @@
+# Fazzi
+spacing = 1
+padding = 0
+hide_ascii = false
+separator = "󰅂"
+key_color = "Blue"
+separator_color = "Green"
+
+[box]
+border = "rounded"
+visible = false
+
+[box.inner_margin]
+x = 0
+y = 0
+
+[custom_ascii]
+path = "~/.config/macchina/ascii/arch"
+color = "Blue"
+
+[keys]
+machine = "󰍹 pc"
+kernel = " kr"
+de = " de"
+distro = " os"
+shell = " sh"
+packages = " pk"
+memory = "󰍛 mm"
+terminal = " tr"
+host = " hs"
+uptime = "󰥔 ut"
+
+[palette]
+type = "Light"
+visible = true
+glyph = "󰊠 "

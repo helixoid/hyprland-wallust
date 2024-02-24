@@ -1,0 +1,93 @@
+@import url("/home/ayush/.cache/wal/gtk.css");
+*{
+	all: unset;
+	font-family: "Noto Sans, Symbols Nerd Font";
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 8px;
+}
+
+.background {
+    background-color: @background;
+}
+
+/*.container, .container * {
+    background-color: transparent;
+}*/
+
+/*button {
+    color: @red;
+    box-shadow: transparent;
+}*/
+
+#bar {
+    border: 2px solid @color9;
+}
+
+.popup {
+    border: 2px solid @color6;
+}
+/* -- sys_info -- */
+
+.sysinfo {
+    color: @color5;
+}
+
+.sysinfo .item {
+    padding-right: 15px;
+}
+
+
+/* -- tray -- */
+
+.tray {
+    padding-right: 15px;
+}
+
+.workspaces {
+    padding-left: 15px;
+}
+
+.workspaces .item{
+    padding-right: 15px;
+    color: @color5;
+}
+
+.workspaces .item.focused {
+    color: @color6;
+}
+
+.upower {
+    padding-right: 15px;
+    color: @color5;
+}
+
+/*.focused {
+    color: @cursor;
+}*/
+
+.clock {
+    color: @color5;
+    padding-right: 15px;
+}
+
+.popup-clock .calendar-clock {
+    color: @color4;
+    font-size: 32px;
+}
+
+.popup-clock .calendar {
+    color: @color5;
+    border: none;
+    padding: 10px;
+}
+
+.separator {
+    padding-left: 10px;
+    color: @cursor;
+}
+
+#power-button {
+    padding-left: 15px;
+    color: @color5;
+}
