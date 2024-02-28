@@ -2,7 +2,6 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 return {
-  front_end = "OpenGL",
   adjust_window_size_when_changing_font_size = false,
   check_for_updates = false,
   window_background_opacity = 0.5,

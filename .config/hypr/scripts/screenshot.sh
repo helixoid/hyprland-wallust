@@ -20,7 +20,7 @@ fi
 
 case $1 in
 p) grim $save_dir/$save_file ;;
-s) grim -g "$(slurp)" - | swappy -f - ;;
+s) grim -g "$(slurp)" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png;;
 *)  echo "...valid options are..."
     echo "p : print screen to $save_dir"
     echo "s : snip current screen to $save_dir"   

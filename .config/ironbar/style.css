@@ -1,44 +1,31 @@
 @import url("/home/ayush/.cache/wal/gtk.css");
 *{
-	all: unset;
-	font-family: "Noto Sans, Symbols Nerd Font";
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 8px;
+    all: unset;
+    font-family: "Noto Sans, Symbols Nerd Font";
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .background {
     background-color: @background;
 }
 
-/*.container, .container * {
-    background-color: transparent;
-}*/
-
-/*button {
-    color: @red;
-    box-shadow: transparent;
-}*/
-
 #bar {
-    border: 2px solid @color9;
+    border: 2px solid @color3;
 }
 
 .popup {
     border: 2px solid @color6;
 }
-/* -- sys_info -- */
 
 .sysinfo {
-    color: @color5;
+    color: @cursor;
 }
 
 .sysinfo .item {
     padding-right: 15px;
 }
-
-
-/* -- tray -- */
 
 .tray {
     padding-right: 15px;
@@ -50,29 +37,29 @@
 
 .workspaces .item{
     padding-right: 15px;
-    color: @color5;
+    color: @cursor;
 }
 
 .workspaces .item.focused {
-    color: @color6;
+    color: @color3;
+}
+
+.focused {
+    color: @cursor;
 }
 
 .upower {
     padding-right: 15px;
-    color: @color5;
+    color: @cursor;
 }
 
-/*.focused {
-    color: @cursor;
-}*/
-
 .clock {
-    color: @color5;
+    color: @cursor;
     padding-right: 15px;
 }
 
 .popup-clock .calendar-clock {
-    color: @color4;
+    color: @cursor;
     font-size: 32px;
 }
 
@@ -89,5 +76,5 @@
 
 #power-button {
     padding-left: 15px;
-    color: @color5;
+    color: @cursor;
 }

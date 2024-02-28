@@ -1,0 +1,9 @@
+* {
+    background:     	{background}40;
+    background-alt: 	{color3};
+    foreground:     	{foreground};
+    selected:       	{color5};
+    active:         	{color9};
+    urgent:         	{color12};
+    Prompt:		{background};
+}

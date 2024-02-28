@@ -45,7 +45,7 @@ notify-screen no
 notify-xterm yes
 notify-beep no
 
-include ~/.config/newsboat/dark
+#include ~/.config/newsboat/dark
 
 #feedlist-format "%?T?║%n %12u %t &╠ %t?"
 #highlight feedlist "[║│]" color3 color0

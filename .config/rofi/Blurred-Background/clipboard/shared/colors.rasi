@@ -1,3 +1,0 @@
-/* Import color-scheme from `colors` directory */
-
-@import "~/.config/rofi/Blurred-Background/colors/catppuccin.rasi"

@@ -1,0 +1,151 @@
+{
+	"layer": "top",
+	"position": "top",
+	"margin-top": 3,
+	"margin-left": 3,
+	"margin-right": 3,
+	"spacing": 15,
+	"exclusive": true,
+	"reload_style_on_change" : true,
+	// For Icons Alignments use "<span font_family='Material Icons' rise='-4000' size='large'>" before putting icons in format section.
+	"modules-left": ["clock#2", "clock"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["tray", "network", "backlight", "pulseaudio", "battery"],
+
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"sort-by-number": true,
+		"on-click": "activate",
+		"format": " {icon} ",
+		"format-icons": {
+			"active": "",
+			"default": "",
+			"urgent": ""
+		}
+	},
+
+	"clock": {
+		"format": "󰥔 {:%I:%M %p}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	
+	"custom/separator": {
+		"tooltip": false,
+		"format": "󰟃"
+	},
+
+	"clock#2": {
+		"format": " {:%b %e (%a)}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+
+	"custom/player": {
+		"format": " {}",
+		"max-length": 200,
+		"exec-if": "pgrep spotify",
+		"exec-on-event": "on-click",
+		"interval": 1,
+		"return-type": "json",
+		"on-click": "playerctl -p spotify play-pause",
+		"on-scroll-up": "playerctl -p spotify previous",
+		"on-scroll-down": "playerctl -p spotify next",
+		"tooltip": true,
+		"escape": true,
+		"exec": "$HOME/.config/waybar/scripts/player.sh"
+	},
+
+	"mpd#2": {
+		"format": "" ,
+		"format-disconnected": "",
+		"format-paused": "",
+		"format-stopped": "",
+		"on-click": "mpc -q pause && mpc -q prev && mpc -q start",
+		"interval": 1
+	},
+    
+	"mpd#3": {
+		"interval": 1,
+		"format": "{stateIcon}",
+		"format-disconnected": "",
+		"format-paused": "{stateIcon}",
+		"format-stopped": "",
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"on-click": "mpc toggle",
+		"interval": 1
+	},
+    
+	"mpd#4": {
+		"format": "",
+		"format-disconnected": "",
+		"format-paused": "",
+		"format-stopped": "",
+		"on-click": "mpc -q pause && mpc -q next && mpc -q start",
+		"interval": 1
+	},
+
+	"tray": {
+		"tooltip": false,
+		"icon-size": 18,
+		"spacing": 10
+	},
+
+	"mpd": {
+		"tooltip": true,
+		"tooltip-format": "{artist} - {album} - {title} - Total Time : {totalTime:%M:%S}",
+		"format": "  {elapsedTime:%M:%S}",
+		"format-disconnected": " MPD Disconnected",
+		"format-stopped": "",
+		"on-click": "mpc toggle",
+		"interval": 1
+	},		
+
+	"network": {
+		"tooltip": true,
+		"format-wifi": "{icon} {essid}",
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-ethernet": "󰈀 {ipaddr}",
+		"tooltip-format": "󰩠 {ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
+		"interval": 3
+	},
+
+	"cpu": {
+		"tooltip": false,
+		"format": " {usage}%",
+		"interval": 3
+	},
+
+	"backlight": {
+		"tooltip": false,
+		"format": "{icon} {percent}%",
+		"format-icons": ["󰃞", "󰃟", "󰃠"]
+	},
+
+	"pulseaudio": {
+		"tooltip": false,
+		"on-click": "pavucontrol",
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟",
+		"format-bluetooth": "󰥰",
+		"format-icons": {
+			"headphone": "󰋋",
+			"headset": "󰋎",
+			"default": ["󰕿", "󰖀", "󰕾"]
+		}
+	},
+
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"interval": 300,
+		"format-charging": "󰂄 {capacity}%",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	},
+}

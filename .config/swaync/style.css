@@ -1,3 +1,4 @@
+@import url(/home/ayush/.cache/wal/gtk.css);
 * {
   all: unset;
   font-size: 14px;
@@ -8,9 +9,9 @@
 .floating-notifications.background .notification-row .notification-background {
   /*box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #313244;*/
   box-shadow: transparent;
-  border-radius: 12.6px;
+  border-radius: 30px;
   margin: 18px;
-  background-color: rgba(30, 30, 46, 0.25);
+  background-color: @background;
   color: #cdd6f4;
   padding: 0;
 }

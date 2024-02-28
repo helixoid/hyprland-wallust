@@ -1,10 +1,11 @@
-backend = "wal"
+backend = "full"
 color_space = "lab"
-threshold = 20
+threshold = 21
 palette = "dark16"
+generation = "complementary"
+check_contrast = true
 
 [templates]
 dir.template = "templates/"
 dir.target = "~/.cache/wal/"
 dir.pywal = true
-
