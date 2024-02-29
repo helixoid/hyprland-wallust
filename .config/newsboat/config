@@ -1,16 +1,12 @@
-# vim: ft=apachestyle cms=#\ %s :
-
 # feed options
 auto-reload yes
 reload-threads 10
 reload-time 60
-reload-threads 8
 download-retries 2
 download-timeout 10
 download-full-page yes
 scrolloff 11
 always-display-description true
-text-width 120
 goto-next-feed no
 
 # keybindings
@@ -64,7 +60,3 @@ highlight article "^(Feed|Title|Author|Link|Date):" color14 default bold
 highlight article "\\((link|image|video)\\)" color8 default
 highlight article "https?://[^ ]+" color4 default
 highlight article "\[[0-9]+\]" color6 default bold
-
-#feedlist-format "%?T?║%n %12u %t &╠ %t?"
-#highlight feedlist "[║│]" color3 color0
-#highlight feedlist "╠.*" color3 color0
