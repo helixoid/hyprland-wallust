@@ -1,10 +1,11 @@
+import=["~/.cache/wal/colors-macchina.toml"]
 # Fazzi
 spacing = 1
 padding = 0
 hide_ascii = false
 separator = "󰅂"
-key_color = "Blue"
-separator_color = "Green"
+key_color = "yellow"
+separator_color = "magenta"
 
 [box]
 border = "rounded"
@@ -16,7 +17,7 @@ y = 0
 
 [custom_ascii]
 path = "~/.config/macchina/ascii/arch"
-color = "Blue"
+color = "blue"
 
 [keys]
 machine = "󰍹 pc"
@@ -31,6 +32,6 @@ host = " hs"
 uptime = "󰥔 ut"
 
 [palette]
-type = "Light"
+type = "Full"
 visible = true
 glyph = "󰊠 "
