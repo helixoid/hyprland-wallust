@@ -23,7 +23,7 @@ paru -S --needed --noconfirm polkit-gnome tremc-git grim bemoji
 
 paru -S --needed --noconfirm slurp satty-bin newsboat bat lsd speech-dispatcher
 
-paru -S --needed --noconfirm papirus-icon-theme ttf-nerd-fonts-symbols
+paru -S --needed --noconfirm papirus-icon-theme otf-intel-one-mono ttf-nerd-fonts-symbols
 
 paru -S --needed --noconfirm thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin file-roller
 
