@@ -19,7 +19,7 @@
   box-shadow: none;
   border: 3px solid @border;
   border-radius: 10px;
-  margin: 16px;
+  margin: 3px;
   padding: 0;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical {
-  border: 2px solid @urgent;
+  border: 3px solid @urgent;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification .notification-content {

@@ -15,8 +15,8 @@
   border-radius: 10px;
   border: 3px solid @border;
   box-shadow: none;
-  margin: 18px;
-  padding: 14px;
+  margin: 3px;
+  padding: 8px;
 }
 
 .control-center .widget-title {
