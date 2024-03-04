@@ -1,7 +1,7 @@
 @import url("/home/ayush/.cache/wal/colors-waybar.css");
 * {
 	all: unset; /*this is really important to isolate waybar from gtk*/
-	font-family: "Intel One Mono, Symbols Nerd Font";
+	font-family: "Noto Sans, Symbols Nerd Font";
 	font-size: 18px;
 }
 
