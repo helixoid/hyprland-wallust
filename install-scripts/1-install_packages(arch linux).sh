@@ -39,10 +39,10 @@ paru -S --needed --npconfirm fzf poppler zoxide ripgrep waycheck
 
 #paru -S --needed --noconfirm kvantum qt5ct qt6ct avizo-git onefetch
 
-#paru -S --needed --noconfirm sddm plymouth sddm-theme-sugar-candy-git
+#paru -S --needed --noconfirm sddm plymouth sddm-theme-sugar-candy-git vulkan-radeon
 
 # Installing Intel Hardware Decoding Driver
-#paru -S --needed --noconfirm intel-media-driver thermald power-profiles-daemon
+#paru -S --needed --noconfirm intel-media-driver vulkan-intel thermald power-profiles-daemon
 
 # Installing nVidia Drivers
 #paru -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils
