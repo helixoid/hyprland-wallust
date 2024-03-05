@@ -57,8 +57,8 @@
       "text": " Control Center"
     },
     "mpris": {
-      "image-size": 96,
-      "image-radius": 6
+      "image-size": 125,
+      "image-radius": 8
     },
     "volume": {
       "label": "󰕾",
@@ -79,8 +79,20 @@
           "command": "nwg-look"
         },
         {
+          "label": "󰌾",
+          "command": "hyprlock"
+        },
+        {
+          "label": "󰅍",
+          "command": "sh -c ~/.config/rofi/scripts/clipboard.sh"
+        },
+        {
+          "label": "󰞅",
+          "command": "sh -c ~/.config/rofi/scripts/emoji-picker.sh"
+        },
+        {
           "label": "",
-          "command": "$HOME/.config/rofi/scripts/powermenu.sh"
+          "command": "sh -c ~/.config/rofi/scripts/powermenu.sh"
         }
        ]
     }
