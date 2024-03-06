@@ -7,7 +7,7 @@ paru -S --needed --noconfirm nwg-look mpv yt-dlp mpd ncmpcpp cava
 
 paru -S --needed --noconfirm wezterm hyprlock-git downgrade blueman
 
-paru -S --needed --noconfirm wlsunset qt5-wayland qt6-wayland 
+paru -S --needed --noconfirm wlsunset qt5-wayland qt6-wayland fwupd
 
 paru -S --needed --noconfirm hypridle-git swww python-geoip swaync waypaper-git
 

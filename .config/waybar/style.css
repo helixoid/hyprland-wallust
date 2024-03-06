@@ -1,4 +1,4 @@
-@import url("/home/ayush/.cache/wal/colors-waybar.css");
+@import 'wallust.css';
 * {
 	all: unset; /*this is really important to isolate waybar from gtk*/
 	font-family: "Noto Sans, Symbols Nerd Font";

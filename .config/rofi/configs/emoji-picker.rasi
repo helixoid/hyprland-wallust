@@ -4,7 +4,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                        	"~/.cache/wal/colors-rofi.rasi"
+@import                        	"~/.config/rofi/shared/colors.rasi"
 
 *{
 	font:			"Noto Sans, Symbols Nerd Font 20";

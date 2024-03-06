@@ -1,9 +1,9 @@
-@define-color text {foreground};
-@define-color background rgba({background.rgb},0.25);
-@define-color background-alt {background};
-@define-color cursor {cursor};
-@define-color hovered {color12};
-@define-color button-background {color5};
-@define-color button-active {color3};
-@define-color border {color9};
-@define-color urgent {color15};
+@define-color text {{foreground}};
+@define-color background rgba({{background | rgb}},0.25);
+@define-color background-alt {{background}};
+@define-color cursor {{cursor}};
+@define-color hovered {{color12}};
+@define-color button-background {{color5}};
+@define-color button-active {{color3}};
+@define-color border {{color9}};
+@define-color urgent {{color15}};

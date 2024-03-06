@@ -1,1 +1,9 @@
-@import "~/.cache/wal/colors-rofi.rasi"
+* {
+    background:     	#03010240;
+    background-alt: 	#A38A63;
+    foreground:     	#FFFFFE;
+    selected:       	#BFB688;
+    active:         	#D27959;
+    urgent:         	#CDCCB6;
+    Prompt:		#030102;
+}
