@@ -1,0 +1,20 @@
+long_uptime = false
+
+long_shell = false
+
+long_kernel = false
+
+current_shell = true
+
+physical_cores = true
+
+theme = "Minimal"
+
+show = [
+  "Machine",
+  "Distribution",
+  "DesktopEnvironment",
+  "Kernel",
+  "Packages",
+  "Uptime"
+]

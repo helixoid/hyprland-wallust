@@ -3,6 +3,7 @@
 	all: unset; /*this is really important to isolate waybar from gtk*/
 	font-family: "Noto Sans, Symbols Nerd Font";
 	font-size: 18px;
+	font-weight: bold;
 }
 
 window#waybar {
