@@ -6,6 +6,9 @@ generation = "complementary"
 check_contrast = true
 
 [templates]
+alacritty.template = "templates/colors-alacritty.toml"
+alacritty.target = "~/.config/alacritty/alacritty.toml"
+
 cava.template = "templates/colors-cava"
 cava.target = "~/.config/cava/config"
 
