@@ -8,7 +8,7 @@
 # Install this setup (Using the script)
   1. Clone this repo: `git clone https://github.com/helixoid/hyprland-wallust.git`
   2. Install the Paru AUR Helper: `./hyprland-wallust/install-scripts/0-paru_install.sh`
-  3. Install all the required packages: './hyprland-wallust/install-scripts/1-install_packages(arch_linux).sh'
+  3. Install all the required packages: `./hyprland-wallust/install-scripts/1-install_packages(arch_linux).sh`
   4. Install the dotfiles: `./hyprland-wallust/install-scripts/2-install_dotfiles.sh`
   5. Start all the system services: `./hyprland-wallust/install-scripts/3-start_services.sh`
 
