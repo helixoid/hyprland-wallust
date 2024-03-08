@@ -29,13 +29,15 @@ paru -S --needed --noconfirm thunar tumbler thunar-volman thunar-archive-plugin 
 
 paru -S --needed --noconfirm gvfs gvfs-afc gvfs-mtp xdg-user-dirs ffmpegthumbnailer
 
-#paru -S --needed --noconfirm gst-plugins-good gst-plugins-bad gst-plugins-ugly
+paru -S --needed --noconfirm gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 paru -S --needed --noconfirm flatpak xdg-desktop-portal-gtk
 
 paru -S --needed --noconfirm zathura zathura-pdf-mupdf zathura-cb yazi fd
 
 paru -S --needed --npconfirm fzf poppler zoxide ripgrep waycheck
+
+paru -S --needed --noconfirm qalculate-gtk gnuplot fwupd
 
 #paru -S --needed --noconfirm kvantum qt5ct qt6ct avizo-git onefetch
 
