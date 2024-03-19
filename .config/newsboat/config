@@ -30,7 +30,7 @@ bind-key d delete-article
 bind-key f goto-url
 bind-key ENTER open
 
-browser "(firefox %u >/dev/null 2>&1) &"
+browser "firefox %u &"
 macro v set browser "mpv %u &> /dev/null &" ; open-in-browser ; set browser "elinks %u"
 
 # notification

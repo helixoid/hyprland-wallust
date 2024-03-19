@@ -1,21 +1,13 @@
 backend = "full"
 color_space = "lch"
-#threshold = 21
 palette = "dark"
-#check_contrast = true
 
 [templates]
-alacritty.template = 'templates/colors-alacritty.toml'
-alacritty.target = '~/.config/alacritty/alacritty.toml'
-
 cava.template = 'templates/colors-cava'
 cava.target = '~/.config/cava/config'
 
 hypr.template = 'templates/colors-hypr.conf'
 hypr.target = '~/.config/hypr/themes/wallust.conf'
-
-kitty.template = 'templates/colors-kitty.conf'
-kitty.target = '~/.config/kitty/kitty.conf'
 
 macchina.template = 'templates/colors-macchina.toml'
 macchina.target = '~/.config/macchina/themes/wallust.toml'
@@ -28,6 +20,9 @@ swaync.target = '~/.config/swaync/themes/wallust/colors-wallust.css'
 
 waybar.template = 'templates/colors-waybar.css'
 waybar.target = '~/.config/waybar/wallust.css'
+
+wezterm.template = 'templates/colors-wezterm.toml'
+wezterm.target = '~/.config/wezterm/colors/wallust.toml'
 
 zathura.template = 'templates/colors-zathura'
 zathura.target = '~/.config/zathura/zathurarc'
