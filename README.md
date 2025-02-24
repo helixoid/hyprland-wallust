@@ -8,7 +8,7 @@
 
 # Install this setup (Using the script)
 
-curl -sSL https://github.com/helixoid/hyprland-wallust/blob/main/install.sh | bash
+`curl -sSL https://github.com/helixoid/hyprland-wallust/blob/main/install.sh | bash`
 
 # Special Thanks
 
