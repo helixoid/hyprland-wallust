@@ -1,9 +1,19 @@
 * {
-    background:     	#00090F40;
-    background-alt: 	#97641E;
-    foreground:     	#FBF4F7;
-    selected:       	#67C076;
-    active:         	#002C4D;
-    urgent:         	#3B9EC9;
-    Prompt:		#00090F;
+    selected-text:	#4B5067;
+    selected-background: #A299BA;
+
+    prompt-text: #956C96;
+    prompt-background: #D6C6E5;
+
+    normal-text: #6D5271;
+    normal-background: #9E99A3;
+
+    window-border: #4B5067;
+    window-background: #4B50670D;
+
+    scrollbar-filled: #A299BA;
+    scrollbar-empty: #9E99A3;
+
+    error-message: #E2DAEA;
+    error-message-border: #E2DAEA;
 }

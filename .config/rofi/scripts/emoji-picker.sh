@@ -2,6 +2,9 @@
 
 ## Run
 rofi \
-    -dmenu \
+    -modi \
+    emoji \
+    -show \
+    emoji \
     -p "😸" \
     -theme ~/.config/rofi/configs/emoji-picker.rasi

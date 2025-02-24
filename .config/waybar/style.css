@@ -1,135 +1,110 @@
-@import 'wallust.css';
+@import "colors-wallust.css";
+@define-color main-color @color13;
 * {
-	all: unset; /*this is really important to isolate waybar from gtk*/
-	font-family: "Noto Sans, Symbols Nerd Font";
-	font-size: 18px;
-	font-weight: bold;
+  all: unset; /*this is really important to isolate waybar from gtk*/
+  font-family: "Noto Sans, Symbols Nerd Font";
+  font-size: 18px;
+  font-weight: bold;
 }
 
 window#waybar {
-	border: 3px solid @color9;
-	border-radius: 10px;
-	background: @background;
+  border: 3px solid @main-color;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 tooltip {
-	background: @background;
-	border-radius: 8px;
-	border-width: 3px;
-	border-style: solid;
-	border-color: @color9;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
+#clock.2
+#custom-separator
+#clock
+#tray
+#network
+#backlight
+#pulseaudio
+#battery
+#battery.warning
+#battery.critical
 #workspaces button {
-	color: @color5;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	transition: all 0.3s ease-in-out;
+  color: @foreground;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.active { 
-	color: @color3;
-	transition: all 0.3s ease-in-out;
+#workspaces button.active {
+  color: @main-color;
+  transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.urgent {
-	color: #FF0000;
-	transition: all 0.3s ease-in-out;
+#workspaces button.urgent,
+#workspaces button:hover {
+  color: @color5;
+  background-color: transparent;
 }
 
 #clock.2 {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 13px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 13px;
 }
 
 #custom-separator {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #clock {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#mpd.2 {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#mpd.3 {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#mpd.4 {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #tray {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#custom-player {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#mpd {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #network {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-#cpu {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #backlight {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #pulseaudio {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-right: 13px;  /* Diable this line if using laptop with battery */
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #battery {
-	color: @foreground;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	/*padding-right: 13px;*/  /* Enable this line if using laptop with battery */
+  color: @main-color;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 13px;
 }
 
 #battery.warning {
-	color: #FF0000;
+  color: #ff0000;
 }
 
 #battery.critical {
-	color: #FFFF00;
+  color: #ffff00;
 }

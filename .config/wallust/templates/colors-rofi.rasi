@@ -1,9 +1,19 @@
 * {
-    background:     	{{background}}40;
-    background-alt: 	{{color3}};
-    foreground:     	{{foreground}};
-    selected:       	{{color5}};
-    active:         	{{color9}};
-    urgent:         	{{color12}};
-    Prompt:		{{background}};
+    selected-text:	{{color1}};
+    selected-background: {{color13}};
+
+    prompt-text: {{color4}};
+    prompt-background: {{color6}};
+
+    normal-text: {{color10}};
+    normal-background: {{color8}};
+
+    window-border: {{color1}};
+    window-background: {{color1}}0D;
+
+    scrollbar-filled: {{color13}};
+    scrollbar-empty: {{color8}};
+
+    error-message: {{color7}};
+    error-message-border: {{color15}};
 }

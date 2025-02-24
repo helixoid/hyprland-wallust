@@ -1,0 +1,12 @@
+scrolloff 5
+feeds-menu-paramount-explore true
+color-list-item-important bold red default
+
+# Command binding for opening links with feh image viewer.
+bind f exec swayimg "%l"
+
+# This will launch mpv in the background.
+bind m exec mpv --no-terminal "%l" &
+
+# This will launch mpv interactively.
+bind M exec mpv "%l"

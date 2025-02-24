@@ -1,0 +1,17 @@
+[input]
+method = pipewire
+source = auto
+
+[color]
+background = 'default'
+
+gradient = 1
+
+gradient_color_1 = '#ffb3af'
+gradient_color_2 = '#571d1d'
+gradient_color_3 = '#733331'
+gradient_color_4 = '#733331'
+gradient_color_5 = '#e7bdba'
+gradient_color_6 = '#442928'
+gradient_color_7 = '#5d3f3d'
+gradient_color_8 = '#5d3f3d'

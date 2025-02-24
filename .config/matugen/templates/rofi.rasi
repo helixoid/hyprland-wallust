@@ -1,0 +1,19 @@
+* {
+    selected-text:	{{colors.primary.default.hex}};
+    selected-background: {{colors.primary_container.default.hex}};
+
+    prompt-text: {{colors.secondary.default.hex}};
+    prompt-background: {{colors.secondary_container.default.hex}};
+
+    normal-text: {{colors.on_primary_fixed_variant.default.hex}};
+    normal-background: {{colors.outline.default.hex}}0d;
+
+    window-border: {{colors.tertiary.default.hex}};
+    window-background: {{colors.outline.default.hex}}0D;
+
+    scrollbar-filled: {{colors.on_secondary.default.hex}};
+    scrollbar-empty: {{colors.on_secondary_container.default.hex}};
+
+    error-message: {{colors.error.default.hex}};
+    error-message-border: {{colors.on_error.default.hex}};
+}

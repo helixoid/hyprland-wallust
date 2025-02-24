@@ -31,9 +31,9 @@ window {
     padding:                     0px;
     border:                      3px solid;
     border-radius:               15px;
-    border-color:                @active;
+    border-color:                @window-border;
     cursor:                      "default";
-    background-color:            @background;
+    background-color:            @window-background;
 }
 
 /*****----- Main Box -----*****/
@@ -44,7 +44,7 @@ mainbox {
     padding:                     30px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @window-border;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
@@ -57,10 +57,10 @@ inputbar {
     padding:                     0px;
     border:                      0px;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @prompt-background;
     background-color:            transparent;
-    text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "prompt"];
+    text-color:                  @prompt-text;
+    children:                    [ "textbox-prompt-colon", "prompt" ];
 }
 
 dummy {
@@ -73,15 +73,15 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     14px 18px;
     border-radius:               100%;
-    background-color:            @active;
-    text-color:                  @Prompt;
+    background-color:            @prompt-background;
+    text-color:                  @prompt-text;
 }
 prompt {
     enabled:                     true;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @urgent;
-    text-color:                  @Prompt;
+    background-color:            @prompt-background;
+    text-color:                  @prompt-text;
 }
 
 /*****----- Message -----*****/
@@ -92,15 +92,15 @@ message {
     border:                      0px solid;
     border-radius:               100%;
     border-color:                @selected;
-    background-color:            @urgent;
-    text-color:                  @foreground;
+    background-color:            @error-message-background;
+    text-color:                  @error-message;
 }
 textbox {
     background-color:            inherit;
     text-color:                  inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-    placeholder-color:           @foreground;
+    placeholder-color:           @error-message;
     blink:                       true;
     markup:                      true;
 }
@@ -108,9 +108,9 @@ error-message {
     padding:                     12px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
+    border-color:                @error-message;
+    background-color:            @error-message-background;
+    text-color:                  @error;
 }
 
 /*****----- Listview -----*****/
@@ -131,9 +131,9 @@ listview {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @window-border;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @normal-text;
     cursor:                      "default";
 }
 
@@ -143,11 +143,11 @@ element {
     spacing:                     0px;
     margin:                      0px;
     padding:                     27px 30px;
-    border:                      0px solid;
+    border:                      3px solid;
     border-radius:               100%;
-    border-color:                @selected;
-    background-color:            @selected;
-    text-color:                  @foreground;
+    border-color:                @window-border;
+    background-color:            transparent;
+    text-color:                  @normal-text;
     cursor:                      pointer;
 }
 element-text {
@@ -159,6 +159,6 @@ element-text {
     horizontal-align:            0.5;
 }
 element selected.normal {
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            @selected-background;
+    text-color:                  @selected-text;
 }

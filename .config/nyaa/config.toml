@@ -1,0 +1,27 @@
+theme = "Material-You"
+default_source = "Nyaa"
+download_client = "Transmission"
+timeout = 30
+scroll_padding = 3
+cursor_padding = 4
+save_config_on_change = true
+hot_reload_config = true
+
+[client.transmission]
+base_url = "http://localhost:9091/transmission/rpc"   # required
+username = "ayush"                                    # all optional here and below
+password = "rupam"
+use_magnet = true
+paused = false
+peer_limit = 100
+download_dir = "/home/helix/Downloads/Torrents/Nyaa/"
+bandwidth_priority = "High"
+
+[source.nyaa]
+base_url = "https://nyaa.si/"
+default_sort = "Date"
+default_sort_dir = "Desc"
+default_filter = "NoFilter"
+default_category = "AllCategories"
+default_search = ""
+rss = false

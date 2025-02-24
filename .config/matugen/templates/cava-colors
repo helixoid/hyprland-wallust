@@ -1,0 +1,17 @@
+[input]
+method = pipewire
+source = auto
+
+[color]
+background = 'default'
+
+gradient = 1
+
+gradient_color_1 = '{{colors.primary.default.hex}}'
+gradient_color_2 = '{{colors.on_primary.default.hex}}'
+gradient_color_3 = '{{colors.primary_container.default.hex}}'
+gradient_color_4 = '{{colors.on_primary_fixed_variant.default.hex}}'
+gradient_color_5 = '{{colors.secondary.default.hex}}'
+gradient_color_6 = '{{colors.on_secondary.default.hex}}'
+gradient_color_7 = '{{colors.secondary_container.default.hex}}'
+gradient_color_8 = '{{colors.on_secondary_fixed_variant.default.hex}}'

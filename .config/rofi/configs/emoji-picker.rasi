@@ -27,9 +27,9 @@ window {
     padding:                     0px;
     border:                      3px solid;
     border-radius:               15px;
-    border-color:                @active;
+    border-color:                @window-border;
     cursor:                      "default";
-    background-color:            @background;
+    background-color:            @window-background;
 }
 
 /*****----- Main Box -----*****/
@@ -40,7 +40,7 @@ mainbox {
     padding:                     40px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
-    border-color:                @active;
+    border-color:                @window-border;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
@@ -53,9 +53,9 @@ inputbar {
     	padding:                     	0px;
     	border:                      	0px solid;
     	border-radius:               	0px;
-    	border-color:                	@selected;
+    	border-color:                	@window-border;
     	background-color:            	transparent;
-	text-color:                  	@foreground;
+	text-color:                  	@prompt-text;
     	children:                    	[ "prompt", "entry" ];
 }
 
@@ -76,7 +76,7 @@ textbox-prompt-colon {
 entry {
     	enabled:                     	true;
     	background-color:            	inherit;
-    	text-color:                  	@selected;
+    	text-color:                  	@prompt-text;
     	cursor:                      	text;
 	font:				"Noto Sans, Symbols Nerd Font 25";
     	placeholder:                 	"Search Emojis & Icons...";
@@ -119,22 +119,21 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
     spacing:                     5px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @active;
+    border-color:                @window-border;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @normal-text;
     cursor:                      "default";
 }
 scrollbar {
     handle-width:                10px ;
-    handle-color:                @urgent;
+    handle-color:                @scrollbar-filled;
     border-radius:               10px;
-    background-color:            @active;
+    background-color:            @scrollbar-empty;
 }
 
 /*****----- Elements -----*****/
@@ -145,18 +144,18 @@ element {
     padding:                     5px 10px;
     border:                      0px solid;
     border-radius:               20px;
-    border-color:                @active;
+    border-color:                @window-border;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @normal-text;
     cursor:                      pointer;
 }
 element normal.normal {
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @normal-text;
 }
 element selected.normal {
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            @selected-background;
+    text-color:                  @selected-text;
 }
 element-icon {
     background-color:            transparent;
@@ -180,21 +179,21 @@ message {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
-    border-color:                @active;
+    border-color:                @window-border;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @error-message;
 }
 textbox {
     padding:                     5px 10px;
     border:                      0px solid;
     border-radius:               20px;
-    border-color:                @active;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    border-color:                @window-border;
+    background-color:            @error-message-border;
+    text-color:                  @error-message;
     vertical-align:              0.5;
     horizontal-align:            0.0;
     highlight:                   none;
-    placeholder-color:           @foreground;
+    placeholder-color:           @prompt-background;
     blink:                       true;
     markup:                      true;
 }
@@ -202,7 +201,7 @@ error-message {
     padding:                     10px;
     border:                      2px solid;
     border-radius:               20px;
-    border-color:                @active;
+    border-color:                @error-message-border;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @error-message;
 }

@@ -1,0 +1,11 @@
+window-decoration = server
+font-family = JetBrains Mono
+font-family-bold = Symbols Nerd Font
+font-size = 15
+theme = catppuccin-mocha
+background-opacity = 0.5
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+l=new_split:right
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+t=new_tab
