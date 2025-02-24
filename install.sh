@@ -170,7 +170,6 @@ ask_yes_no "Have you reviewed the packages.txt and gaming.txt files?" || {
 install_package "git"
 install_package "base-devel"
 install_paru
-
 install_package "stow"
 install_package "linux-headers"
 install_gpu_drivers
