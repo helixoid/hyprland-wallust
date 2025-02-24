@@ -35,10 +35,6 @@ ask_yes_no() {
 install_package() {
   local pkg="$1"
   echo "Installing $pkg..."
-  if command_exists "$pkg" || pacman -Qs "^$pkg$" >/dev/null; then
-    echo "$pkg is already installed."
-    return 0
-  fi
   paru -S --needed --noconfirm "$pkg" || handle_error "Failed to install $pkg"
   echo "$pkg installed successfully."
 }
@@ -96,6 +92,10 @@ install_packages_from_file() {
     echo "No package list found ($pkg_file) or file is not readable. Skipping package installation."
     return 0
   fi
+  if [[ "$pkg_file" == *gaming.txt* ]] && ! command_exists flatpak; then
+    echo "flatpak is not installed, skipping gaming package installation."
+    return 0
+  fi
   echo "Installing packages from $pkg_file..."
   while IFS= read -r pkg; do
     install_package "$pkg"
@@ -124,7 +124,7 @@ configure_shell() {
 # Enable systemd services
 enable_systemd_services() {
   local services=(
-    "--user mpd"
+    "mpd --user"
     "firewalld"
     "vnstat"
     "power-profiles-daemon"
@@ -132,13 +132,30 @@ enable_systemd_services() {
   )
   echo "Starting services..."
   for service in "${services[@]}"; do
-    sudo systemctl enable --now $service || echo "Warning: Failed to enable/start $service."
+    if [[ "$service" == *"--user"* ]]; then
+      service=${service// --user/}
+      systemctl --user enable --now "$service" || echo "Warning: Failed to enable/start $service user service."
+    else
+      sudo systemctl enable --now "$service" || echo "Warning: Failed to enable/start $service."
+    fi
   done
 }
 
 # Prompt for reboot
 prompt_reboot() {
   ask_yes_no "Reboot system now?" && sudo -v && sudo reboot || echo "Reboot skipped. Exiting."
+}
+
+# Paru installation.
+install_paru() {
+  if ! command_exists paru; then
+    if ! command_exists base-devel; then
+      install_package base-devel
+    fi
+    clone_repo "https://aur.archlinux.org/paru.git" "paru"
+    (cd paru && makepkg -si --noconfirm) || handle_error "Failed to build and install paru"
+  fi
+  echo "Paru installed successfully."
 }
 
 # --- Main Script ---
@@ -152,13 +169,6 @@ ask_yes_no "Have you reviewed the packages.txt and gaming.txt files?" || {
 # Install core packages
 install_package "git"
 install_package "base-devel"
-install_paru() {
-  if ! command_exists paru; then
-    clone_repo "https://aur.archlinux.org/paru.git" "paru"
-    (cd paru && makepkg -si --noconfirm) || handle_error "Failed to build and install paru"
-  fi
-  echo "Paru installed successfully."
-}
 install_paru
 
 install_package "stow"
@@ -180,7 +190,11 @@ install_packages_from_file "$DOTFILES_DIR/packages.txt"
 
 # Symlink dotfiles using Stow
 echo "Symlinking dotfiles to your home directory using GNU Stow..."
-stow -v -t "$HOME" . || handle_error "Stow failed to symlink files: $(stow -v 2>&1)"
+stow -v -t "$HOME" . || {
+  echo "Stow failed to symlink files."
+  echo "$(stow -v 2>&1)"
+  exit 1
+}
 
 # Enable systemd services
 enable_systemd_services
