@@ -11,11 +11,35 @@ PACKAGES_FILE="packages.txt"
 GAMING_FILE="gaming.txt"
 LOG_FILE="install.log"
 
+# --- Colors ---
+# Normal Colors
+BLACK='\033[0;30m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+
+# Bold Colors
+BOLD_BLACK='\033[1;30m'
+BOLD_RED='\033[1;31m'
+BOLD_GREEN='\033[1;32m'
+BOLD_YELLOW='\033[1;33m'
+BOLD_BLUE='\033[1;34m'
+BOLD_PURPLE='\033[1;35m'
+BOLD_CYAN='\033[1;36m'
+BOLD_WHITE='\033[1;37m'
+
+# Reset Color
+NC='\033[0m' # No Color
+
 # --- Logger Functions ---
-log_info() { printf "[INFO] %s\n" "$1" | tee -a "$LOG_FILE"; }
-log_warn() { printf "[WARN] %s\n" "$1" | tee -a "$LOG_FILE"; }
-log_error() { printf "[ERROR] %s\n" "$1" | tee -a "$LOG_FILE"; }
-log_success() { printf "[SUCCESS] %s\n" "$1" | tee -a "$LOG_FILE"; }
+log_info() { printf "${BOLD_BLUE}[INFO]${NC} %s\n" "$1" | tee -a "$LOG_FILE"; }
+log_warn() { printf "${BOLD_YELLOW}[WARN]${NC} %s\n" "$1" | tee -a "$LOG_FILE"; }
+log_error() { printf "${BOLD_RED}[ERROR]${NC} %s\n" "$1" | tee -a "$LOG_FILE"; }
+log_success() { printf "${BOLD_GREEN}[SUCCESS]${NC} %s\n" "$1" | tee -a "$LOG_FILE"; }
 
 # --- Helper Functions ---
 
@@ -51,11 +75,11 @@ ask_yes_no() {
   
   # Add default option to prompt if provided
   if [[ "$default" == "y" ]]; then
-    prompt="$prompt [Y/n]"
+    prompt="${BOLD_GREEN}$prompt [Y/n]${NC}"
   elif [[ "$default" == "n" ]]; then
-    prompt="$prompt [y/N]"
+    prompt="${BOLD_RED}$prompt [y/N]${NC}"
   else
-    prompt="$prompt [y/n]"
+    prompt="${BOLD_CYAN}$prompt [y/n]${NC}"
   fi
   
   while true; do
@@ -81,9 +105,9 @@ select_option() {
   local options=("$@")
   local choice
   
-  echo "$prompt"
+  echo -e "${BOLD_CYAN}$prompt${NC}"
   for i in "${!options[@]}"; do
-    echo "  $((i+1)). ${options[$i]}"
+    echo -e "  ${BOLD_GREEN}$((i+1))${NC}. ${options[$i]}"
   done
   
   while true; do
@@ -95,6 +119,21 @@ select_option() {
       log_warn "Invalid selection. Please enter a number between 1 and ${#options[@]}."
     fi
   done
+}
+
+# Show spinner
+show_spinner() {
+  local pid=$1
+  local delay=0.1
+  local spinstr='|/-\'
+  while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+    local temp=${spinstr#?}
+    printf " [%c]  " "$spinstr"
+    local spinstr=$temp${spinstr%"$temp"}
+    sleep $delay
+    printf "\b\b\b\b\b\b"
+  done
+  printf "    \b\b\b\b"
 }
 
 # --- Package Management ---
@@ -468,31 +507,150 @@ setup_flatpak() {
   log_success "Flatpak setup completed successfully"
 }
 
+# --- Display Welcome Screen ---
+display_welcome_screen() {
+  # Clear the screen
+  clear
+  
+  # Display ASCII art and welcome message
+  cat <<'EOF'
+${BOLD_CYAN}
+ ██╗  ██╗██╗   ██╗██████╗ ██████╗ ██╗      █████╗ ███╗   ██╗██████╗        
+ ██║  ██║╚██╗ ██╔╝██╔══██╗██╔══██╗██║     ██╔══██╗████╗  ██║██╔══██╗       
+ ███████║ ╚████╔╝ ██████╔╝██████╔╝██║     ███████║██╔██╗ ██║██║  ██║       
+ ██╔══██║  ╚██╔╝  ██╔═══╝ ██╔══██╗██║     ██╔══██║██║╚██╗██║██║  ██║       
+ ██║  ██║   ██║   ██║     ██║  ██║███████╗██║  ██║██║ ╚████║██████╔╝       
+ ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝        
+                                                                            
+ ██╗    ██╗ █████╗ ██╗     ██╗     ██╗   ██╗███████╗████████╗              
+ ██║    ██║██╔══██╗██║     ██║     ██║   ██║██╔════╝╚══██╔══╝              
+ ██║ █╗ ██║███████║██║     ██║     ██║   ██║███████╗   ██║                 
+ ██║███╗██║██╔══██║██║     ██║     ██║   ██║╚════██║   ██║                 
+ ╚███╔███╔╝██║  ██║███████╗███████╗╚██████╔╝███████║   ██║                 
+  ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝   ╚═╝                 
+${NC}
+
+${BOLD_GREEN}┌─────────────────────────────────────────────────────────────┐
+│                 Automatic Installation Script                │
+│                                                             │
+│  This script will set up a complete Hyprland environment    │
+│  with Wallust theme configuration. It includes:             │
+│                                                             │
+│  • Hyprland Wayland Compositor                              │
+│  • Wallust dynamic theming                                  │
+│  • Required drivers and dependencies                        │
+│  • Shell configuration                                      │
+│  • Dotfiles symlinked to your home directory                │
+└─────────────────────────────────────────────────────────────┘${NC}
+
+${BOLD_YELLOW}Version: 1.0.0
+Author: helixoid
+Repository: ${REPO_URL}${NC}
+
+EOF
+  
+  # Sleep for a moment to let the user read
+  sleep 2
+  
+  echo -e "${BOLD_PURPLE}System Information:${NC}"
+  echo -e "${BOLD_BLUE}• OS:${NC} $(grep "PRETTY_NAME" /etc/os-release | cut -d= -f2 | tr -d '"')"
+  echo -e "${BOLD_BLUE}• Kernel:${NC} $(uname -r)"
+  echo -e "${BOLD_BLUE}• Architecture:${NC} $(uname -m)"
+  echo -e "${BOLD_BLUE}• User:${NC} $(whoami)"
+  echo -e "${BOLD_BLUE}• Hostname:${NC} $(hostname)"
+  echo ""
+  
+  echo -e "${BOLD_RED}Note: This script will make changes to your system.${NC}"
+  echo -e "${BOLD_RED}It is recommended to back up your data before proceeding.${NC}"
+  echo ""
+  
+  # Confirm before proceeding
+  if ! ask_yes_no "Ready to proceed with the installation" "n"; then
+    echo -e "${BOLD_YELLOW}Installation cancelled by user.${NC}"
+    exit 0
+  fi
+  
+  echo ""
+}
+
+# --- Show completion screen ---
+show_completion_screen() {
+  clear
+  
+  cat <<'EOF'
+${BOLD_GREEN}
+ ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗      █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+ ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║     ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+ ██║██╔██╗ ██║███████╗   ██║   ███████║██║     ██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║
+ ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║     ██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+ ██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+ ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                                              
+  ██████╗ ██████╗ ███╗   ███╗██████╗ ██╗     ███████╗████████╗███████╗██╗                    
+ ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██║     ██╔════╝╚══██╔══╝██╔════╝██║                    
+ ██║     ██║   ██║██╔████╔██║██████╔╝██║     █████╗     ██║   █████╗  ██║                    
+ ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝     ██║   ██╔══╝  ╚═╝                    
+ ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ███████╗███████╗   ██║   ███████╗██╗                    
+  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝                    
+${NC}
+
+${BOLD_CYAN}┌─────────────────────────────────────────────────────────────┐
+│           Installation completed successfully!              │
+│                                                             │
+│  • Your dotfiles have been symlinked                        │
+│  • Services have been enabled                               │
+│  • All required packages have been installed                │
+│                                                             │
+│  You can now reboot your system to apply all changes.       │
+│  After reboot, you can start Hyprland by using 'Hyprland'   │
+│  command or through your display manager.                   │
+└─────────────────────────────────────────────────────────────┘${NC}
+
+${BOLD_YELLOW}Installation Log: ${LOG_FILE}
+Dotfiles Location: ${DOTFILES_DIR}${NC}
+
+${BOLD_PURPLE}Thank you for using this installation script!${NC}
+${BOLD_PURPLE}For issues or questions: https://github.com/helixoid/hyprland-wallust/issues${NC}
+
+EOF
+}
+
+# --- Progress Bar ---
+show_progress_bar() {
+  local current=$1
+  local total=$2
+  local label="$3"
+  local cols=$(tput cols)
+  local bar_size=$((cols - 30))
+  local completed=$((current * bar_size / total))
+  local percentage=$((current * 100 / total))
+  
+  printf "\r${BOLD_BLUE}[${NC}"
+  
+  for ((i=0; i<bar_size; i++)); do
+    if [ $i -lt $completed ]; then
+      printf "${BOLD_GREEN}▓${NC}"
+    else
+      printf "${BOLD_BLACK}▒${NC}"
+    fi
+  done
+  
+  printf "${BOLD_BLUE}]${NC} ${BOLD_GREEN}%3d%%${NC} ${CYAN}%s${NC}" "$percentage" "$label"
+}
+
 # --- Main Function ---
 
 main() {
   # Initialize log
   init_log
   
-  # Print welcome message
-  cat <<EOF
-╔════════════════════════════════════════════════════════╗
-║           Hyprland-Wallust Installation Script         ║
-║                                                        ║
-║  This script will set up Hyprland with Wallust theme.  ║
-║  It will install all necessary packages and dotfiles.  ║
-╚════════════════════════════════════════════════════════╝
-
-EOF
+  # Display welcome screen
+  display_welcome_screen
   
   # Check if running as root
   check_not_root
   
-  # Initial confirmation
-  if ! ask_yes_no "Have you reviewed the packages.txt and gaming.txt files" "n"; then
-    log_info "Please review the package files before proceeding. Exiting..."
-    exit 0
-  fi
+  # Initial confirmation for package files - moved to the welcome screen
   
   # Install git if needed
   if ! command_exists git; then
@@ -500,22 +658,43 @@ EOF
     install_with_pacman "git" || die "Failed to install git"
   fi
   
+  # Setup progress tracking
+  local total_steps=8
+  local current_step=0
+  
   # Install paru
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Installing paru AUR helper..."
   install_paru
+  echo ""
   
   # Install essential packages
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Installing essential packages..."
   install_packages "stow" "linux-headers"
+  echo ""
   
   # Install GPU drivers
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Setting up GPU drivers..."
   install_gpu_drivers
+  echo ""
   
   # Clone dotfiles repository
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Cloning dotfiles repository..."
   clone_or_update_repo "$REPO_URL" "$DOTFILES_DIR"
+  echo ""
   
   # Setup Flatpak
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Setting up Flatpak..."
   setup_flatpak
+  echo ""
   
   # Install packages from files
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Installing packages..."
   cd "$DOTFILES_DIR" || die "Failed to navigate to $DOTFILES_DIR"
   
   # Install regular packages
@@ -531,18 +710,23 @@ EOF
   elif [[ -r "$GAMING_FILE" ]]; then
     log_warn "Flatpak is required for gaming packages. Skipping $GAMING_FILE"
   fi
+  echo ""
   
   # Symlink dotfiles
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Symlinking dotfiles..."
   symlink_dotfiles "$DOTFILES_DIR" "$HOME"
+  echo ""
   
-  # Setup services
+  # Setup services and shell
+  ((current_step++))
+  show_progress_bar $current_step $total_steps "Setting up services and shell..."
   setup_services
-  
-  # Configure shell
   configure_shell
+  echo ""
   
-  # Installation complete
-  log_success "Installation completed successfully!"
+  # Show completion screen
+  show_completion_screen
   
   # Prompt for reboot
   if ask_yes_no "Would you like to reboot now to apply all changes" "y"; then
