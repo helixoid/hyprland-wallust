@@ -7,7 +7,7 @@ configuration {
 @import                          "~/.config/rofi/shared/colors.rasi"
 
 *{
-	font:			"Noto Sans, Symbols Nerd Font 12";
+	font:			"Noto Sans, Symbols Nerd Font 35";
 }
 
 /*
@@ -56,8 +56,8 @@ message {
     padding:                     12px;
     border:                      0px solid;
     border-radius:               100%;
-    border-color:                @error-message-border;
-    background-color:            @window-background;
+    border-color:                @window-border;
+    background-color:            transparent;
     text-color:                  @prompt-text;
 }
 textbox {
@@ -74,7 +74,7 @@ error-message {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @error-message-border;
-    background-color:            @window-background;
+    background-color:            transparent;
     text-color:                  @error-message;
 }
 
@@ -90,7 +90,6 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
     spacing:                     30px;
     margin:                      0px;
     padding:                     0px;

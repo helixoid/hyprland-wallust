@@ -1,5 +1,4 @@
 @import "colors-wallust.css";
-@define-color main-color @color13;
 * {
   all: unset; /*this is really important to isolate waybar from gtk*/
   font-family: "Noto Sans, Symbols Nerd Font";
@@ -8,7 +7,7 @@
 }
 
 window#waybar {
-  border: 3px solid @main-color;
+  border: 3px solid @color13;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.1);
 }
@@ -18,7 +17,7 @@ tooltip {
   border-radius: 8px;
   border-width: 3px;
   border-style: solid;
-  border-color: @main-color;
+  border-color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -34,68 +33,62 @@ tooltip {
 #battery.warning
 #battery.critical
 #workspaces button {
-  color: @foreground;
+  color: @color15;
   padding-top: 3px;
   padding-bottom: 3px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-  color: @main-color;
+  color: @color13;
   transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.urgent,
-#workspaces button:hover {
-  color: @color5;
-  background-color: transparent;
-}
-
 #clock.2 {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 13px;
 }
 
 #custom-separator {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #clock {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #tray {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #network {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #backlight {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #pulseaudio {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
 }
 
 #battery {
-  color: @main-color;
+  color: @color13;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 13px;

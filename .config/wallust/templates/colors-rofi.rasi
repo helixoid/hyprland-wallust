@@ -2,14 +2,14 @@
     selected-text:	{{color1}};
     selected-background: {{color13}};
 
-    prompt-text: {{color4}};
-    prompt-background: {{color6}};
+    prompt-text: {{color3}};
+    prompt-background: transparent;
 
-    normal-text: {{color10}};
+    normal-text: {{color13}};
     normal-background: {{color8}};
 
-    window-border: {{color1}};
-    window-background: {{color1}}0D;
+    window-border: {{color13}};
+    window-background: {{color6}}0D;
 
     scrollbar-filled: {{color13}};
     scrollbar-empty: {{color8}};
