@@ -1,164 +1,97 @@
 /*****----- Configuration -----*****/
 configuration {
-    show-icons:                 false;
+    show-icons: false;
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/.config/rofi/shared/colors.rasi"
+@import "~/.config/rofi/shared/colors.rasi"
 
-*{
-	font:			"Noto Sans, Symbols Nerd Font 12";
+* {
+    font: "Noto Sans, Symbols Nerd Font 12";
 }
-
-/*
-USE_BUTTONS=YES
-*/
 
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
-    transparency:                "real";
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  false;
-    width:                       1000px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 1000px;
+    x-offset: 0px;
+    y-offset: 0px;
+    
     /* properties for all widgets */
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      3px solid;
-    border-radius:               15px;
-    border-color:                @window-border;
-    cursor:                      "default";
-    background-color:            @window-background;
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 3px solid;
+    border-radius: 15px;
+    border-color: @window-border;
+    cursor: "default";
+    background-color: @window-background;
 }
 
 /*****----- Main Box -----*****/
 mainbox {
-    enabled:                     true;
-    spacing:                     15px;
-    margin:                      0px;
-    padding:                     30px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @window-border;
-    background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
-}
-
-/*****----- Inputbar -----*****/
-inputbar {
-    enabled:                     true;
-    spacing:                     15px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px;
-    border-radius:               0px;
-    border-color:                @prompt-background;
-    background-color:            transparent;
-    text-color:                  @prompt-text;
-    children:                    [ "textbox-prompt-colon", "prompt" ];
-}
-
-dummy {
-    background-color:            transparent;
-}
-
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "";
-    padding:                     14px 18px;
-    border-radius:               100%;
-    background-color:            @prompt-background;
-    text-color:                  @prompt-text;
-}
-prompt {
-    enabled:                     true;
-    padding:                     12px;
-    border-radius:               100%;
-    background-color:            @prompt-background;
-    text-color:                  @prompt-text;
-}
-
-/*****----- Message -----*****/
-message {
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     12px;
-    border:                      0px solid;
-    border-radius:               100%;
-    border-color:                @selected;
-    background-color:            @error-message-background;
-    text-color:                  @error-message;
-}
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-    placeholder-color:           @error-message;
-    blink:                       true;
-    markup:                      true;
-}
-error-message {
-    padding:                     12px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @error-message;
-    background-color:            @error-message-background;
-    text-color:                  @error;
+    enabled: true;
+    spacing: 15px;
+    margin: 0px;
+    padding: 30px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @window-border;
+    background-color: transparent;
+    children: [ "listview" ];
 }
 
 /*****----- Listview -----*****/
 listview {
-    enabled:                     true;
-    columns:                     5;
-    lines:                       1;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    
-    spacing:                     30px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @window-border;
-    background-color:            transparent;
-    text-color:                  @normal-text;
-    cursor:                      "default";
+    enabled: true;
+    columns: 5;
+    lines: 1;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 30px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @window-border;
+    background-color: transparent;
+    text-color: @normal-text;
+    cursor: "default";
 }
 
 /*****----- Elements -----*****/
 element {
-    enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     27px 30px;
-    border:                      3px solid;
-    border-radius:               100%;
-    border-color:                @window-border;
-    background-color:            transparent;
-    text-color:                  @normal-text;
-    cursor:                      pointer;
+    enabled: true;
+    spacing: 0px;
+    margin: 0px;
+    padding: 27px 30px;
+    border: 3px solid;
+    border-radius: 100%;
+    border-color: @window-border;
+    background-color: transparent;
+    text-color: @normal-text;
+    cursor: pointer;
 }
+
 element-text {
-    font:                        "Symbols Nerd Font 60";
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
+    font: "Symbols Nerd Font 60";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 }
-element selected.normal {
-    background-color:            @selected-background;
-    text-color:                  @selected-text;
+
+element.selected.normal {
+    background-color: @selected-background;
+    text-color: @selected-text;
 }

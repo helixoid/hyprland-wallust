@@ -1,165 +1,153 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:			"drun";
-    	show-icons:		true;
-    	display-drun:		" ";
-	drun-display-format:	"{name}";
+    modi: "drun";
+    show-icons: true;
+    display-drun: " ";
+    drun-display-format: "{name}";
 }
 
 /*****----- Global Properties -----*****/
-@import				"~/.config/rofi/shared/colors.rasi"
+@import "~/.config/rofi/shared/colors.rasi"
 
-*{
-	font:			"Noto Sans, Symbols Nerd Font 12";
+* {
+    font: "Noto Sans, Symbols Nerd Font 12";
 }
 
 /*****----- Main Window -----*****/
 window {
-    transparency:                "real";
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  false;
-    width:                       400px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      2px solid;
-    border-radius:               15px;
-    border-color:                @window-border;
-    background-color:            @window-background;
-    cursor:                      "default";
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 400px;
+    x-offset: 0px;
+    y-offset: 0px;
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid;
+    border-radius: 15px;
+    border-color: @window-border;
+    background-color: @window-background;
+    cursor: "default";
 }
 
 /*****----- Main Box -----*****/
 mainbox {
-    enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
-    border-color:                @window-border;
-    background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    enabled: true;
+    spacing: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px 0px 0px 0px;
+    border-color: @window-border;
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
-    enabled:                     true;
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     15px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected-text;
-    background-color:            @prompt-background;
-    text-color:                  @prompt-text;
-    children:                    [ "prompt", "entry" ];
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 15px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @selected-text;
+    background-color: @prompt-background;
+    text-color: @prompt-text;
+    children: [ "prompt", "entry" ];
 }
 
 prompt {
-    enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
+    enabled: true;
+    background-color: inherit;
+    text-color: inherit;
 }
+
 textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "::";
-    background-color:            inherit;
-    text-color:                  inherit;
+    enabled: true;
+    expand: false;
+    str: "::";
+    background-color: inherit;
+    text-color: inherit;
 }
+
 entry {
-    enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
-    cursor:                      text;
-    placeholder:                 "Search...";
-    placeholder-color:           inherit;
+    enabled: true;
+    background-color: inherit;
+    text-color: inherit;
+    cursor: text;
+    placeholder: "Search...";
+    placeholder-color: inherit;
 }
 
 /*****----- Listview -----*****/
 listview {
-    enabled:                     true;
-    columns:                     1;
-    lines:                       6;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                transparent;
-    background-color:            transparent;
-    text-color:                  @normal-text;
-    cursor:                      "default";
+    enabled: true;
+    columns: 1;
+    lines: 6;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    text-color: @normal-text;
+    cursor: "default";
 }
+
 scrollbar {
-    handle-width:                5px ;
-    handle-color:                @scrollbar-filled;
-    border-radius:               0px;
-    background-color:            transparent;
+    handle-width: 5px;
+    handle-color: @scrollbar-filled;
+    border-radius: 0px;
+    background-color: transparent;
 }
 
 /*****----- Elements -----*****/
 element {
-    enabled:                     true;
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     8px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected-background;
-    background-color:            transparent;
-    text-color:                  @normal-text;
-    cursor:                      pointer;
-}
-element normal.normal {
-    background-color:            transparent;
-    text-color:                  @normal-text;
-}
-element selected.normal {
-    background-color:            @selected-background;
-    text-color:                  @selected-text;
-}
-element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        32px;
-    cursor:                      inherit;
-}
-element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    highlight:                   inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 8px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @selected-background;
+    background-color: transparent;
+    text-color: @normal-text;
+    cursor: pointer;
 }
 
-/*****----- Message -----*****/
-error-message {
-    padding:                     15px;
-    border:                      2px solid;
-    border-radius:               12px;
-    border-color:                @error-message-border;
-    background-color:            transparent;
-    text-color:                  @error-message;
+element normal.normal {
+    background-color: transparent;
+    text-color: @normal-text;
 }
-textbox {
-    background-color:            transparent;
-    text-color:                  @error-message;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    highlight:                   none;
+
+element selected.normal {
+    background-color: @selected-background;
+    text-color: @selected-text;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 32px;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
 }
