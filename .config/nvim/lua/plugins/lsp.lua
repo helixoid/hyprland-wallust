@@ -44,7 +44,7 @@ return {
       local lsp = require 'lspconfig'
 
       -- Servers to configure with the same capabilities
-      local servers = { 'lua_ls', 'pyright', 'clangd' }
+      local servers = { 'lua_ls', 'pyright', 'clangd', 'rust_analyzer' }
 
       for _, server in ipairs(servers) do
         lsp[server].setup { capabilities = capabilities }
