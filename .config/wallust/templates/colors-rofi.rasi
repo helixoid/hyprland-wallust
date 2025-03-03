@@ -1,18 +1,18 @@
 * {
-    selected-text:	{{color1}};
-    selected-background: {{color13}};
+    selected-text:	{{color0}};
+    selected-background: {{color4}};
 
-    prompt-text: {{color3}};
+    prompt-text: {{color0}};
     prompt-background: transparent;
 
-    normal-text: {{color13}};
-    normal-background: {{color8}};
+    normal-text: {{foreground}};
+    normal-background: transparent;
 
-    window-border: {{color13}};
+    window-border: {{color4}};
     window-background: {{color6}}0D;
 
-    scrollbar-filled: {{color13}};
-    scrollbar-empty: {{color8}};
+    scrollbar-filled: {{color4}};
+    scrollbar-empty: {{color0}};
 
     error-message: {{color7}};
     error-message-border: {{color15}};

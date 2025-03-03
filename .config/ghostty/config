@@ -2,7 +2,7 @@ window-decoration = server
 font-family = JetBrains Mono
 font-family-bold = Symbols Nerd Font
 font-size = 15
-theme = wallust.conf
+theme = tokyonight_moon
 background-opacity = 0.5
 keybind = ctrl+shift+k=new_split:up
 keybind = ctrl+shift+j=new_split:down

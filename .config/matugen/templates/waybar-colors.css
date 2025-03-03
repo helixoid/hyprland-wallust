@@ -1,0 +1,3 @@
+@define-color foreground {{colors.primary.default.hex}};
+@define-color background alpha({{colors.primary_container.default.hex}},0.05);
+@define-color active {{colors.on_primary.default.hex}};
